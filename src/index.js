@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import * as omdb from "./utils";
+
+
+
+omdb.getMoviesBySearchTerm("star")
+.then(data => data.Search)
+.then(async (data) => {
+    return await omdb.getMovieDetailsById(data[0].imdbID);
+})
+.then(movie => console.log(movie))
 
 ReactDOM.render(
   <React.StrictMode>

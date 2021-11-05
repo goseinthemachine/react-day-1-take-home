@@ -1,0 +1,16 @@
+export const getMoviesBySearchTerm = async (searchTerm) => {
+    const url = new URL("http://www.omdbapi.com");
+    url.searchParams.append("apikey","878df137");
+    url.searchParams.append("s",searchTerm);
+    const result = await fetch(url);
+    return await result.json();
+};
+
+export const getMovieDetailsById = async (id) => {
+    const url = new URL("http://www.omdbapi.com");
+    url.searchParams.append("apikey","878df137");
+    url.searchParams.append("i",id);
+    const result = await fetch(url);
+    return result.json();
+}
+
